@@ -1,0 +1,22 @@
+version: '2'
+services:
+    radioserver:
+        image: eltonkola/sswr
+        build:
+            context: .
+            args:
+                - config_mount_name=stream
+                - config_icecast_host=50.22.218.197
+                - config_icecast_port=3441
+                - config_icecast_password=varilesht81
+                - config_error_msg=We are having tecnical issues, please come back later!
+                - config_telnet_enable=false
+                - config_telnet_port=1361
+                - config_rotate_jingle=1
+                - config_rotate_song=3
+                - config_default_meta=Albanian NYC Radio
+        volumes:
+            - radio_media:/home/elton/Desktop/doker/sswr
+volumes:
+    radio_media:
+        driver: local
